@@ -1,0 +1,156 @@
+
+title: The Essential AI
+author: Naresh Kumar
+logo: lightmode.svg
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+
+execute:
+  execute_notebooks: false
+  timeout: -1
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+sphinx:
+  config:
+    # html_extra_path: ["_static/plotly_htmls/"]
+    html_js_files:
+      - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+      - https://c6.patreon.com/becomePatronButton.bundle.js
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Information about where the book exists on the web
+  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: false
+  use_repository_button: false
+html:
+  favicon: brain1.ico
+  #google_analytics_id: UA-52617120-7
+  #home_page_in_navbar: false
+  use_edit_page_button: false
+  use_repository_button: false
+  use_issues_button: false
+  #baseurl: https://jupyterbook.org/
+
+repository:
+  url: https://github.com/EssentialAI/cs229
+  branch: main
+
+launch_buttons:
+  notebook_interface: "classic"
+  colab_url: ""
+  thebe: true
+
+parse:
+  myst_substitutions:
+      sub3: My _global_ value!
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+
+latex:
+  latex_documents:
+    targetname: book.tex
+    
+sphinx:
+  extra_extensions:
+  - sphinx_inline_tabs
+
+sphinx:
+  config:
+    nb_custom_formats:
+      .Rmd:
+        - jupytext.reads
+        - fmt: Rmd
+    bibtex_reference_style: author_year  # or label, super, \supercite
+    # TODO: #917 this path will be the default in sphinx v4
+    # mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    # However, it is incompatible with the mathjax config below for macros
+    mathjax3_config:
+      TeX:
+        Macros:
+          "N": "\\mathbb{N}"
+          "floor": ["\\lfloor#1\\rfloor", 1]
+          "bmat": ["\\left[\\begin{array}"]
+          "emat": ["\\end{array}\\right]"]
+    latex_elements:
+        preamble: |
+          \newcommand\N{\mathbb{N}}
+          \newcommand\floor[1]{\lfloor#1\rfloor}
+          \newcommand{\bmat}{\left[\begin{array}}
+          \newcommand{\emat}{\end{array}\right]}
+    intersphinx_mapping:
+      ebp:
+        - "https://executablebooks.org/en/latest/"
+        - null
+      myst-parser:
+        - "https://myst-parser.readthedocs.io/en/latest/"
+        - null
+      myst-nb:
+        - "https://myst-nb.readthedocs.io/en/latest/"
+        - null
+      sphinx:
+        - "https://www.sphinx-doc.org/en/master"
+        - null
+      nbformat:
+        - "https://nbformat.readthedocs.io/en/latest"
+        - null
+      sphinx-panels:
+        - https://sphinx-panels.readthedocs.io/en/sphinx-book-theme/
+        - null
+    rediraffe_branch: 'master'
+    rediraffe_redirects:
+      content-types/index.md: file-types/index.md
+      content-types/markdown.md: file-types/markdown.md
+      content-types/notebooks.ipynb: file-types/notebooks.ipynb
+      content-types/myst-notebooks.md: file-types/myst-notebooks.md
+      content-types/jupytext.md: file-types/jupytext.Rmd
+      content-types/restructuredtext.md: file-types/restructuredtext.md
+    language: en
+    html_extra_path:
+      - images/badge.svg
+sphinx:
+  config:
+    nb_render_priority:
+      html:
+      - "application/vnd.jupyter.widget-view+json"
+      - "application/javascript"
+      - "text/html"
+      - "image/svg+xml"
+      - "image/png"
+      - "image/jpeg"
+      - "text/markdown"
+      - "text/latex"
+      - "text/plain"
+sphinx:
+  config:
+    html_js_files:
+    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - colon_fence
+    - dollarmath
+    - linkify
+    - substitution
+    
+    
+ 

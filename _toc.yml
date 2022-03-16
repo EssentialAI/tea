@@ -1,0 +1,6 @@
+format: jb-book
+root: index
+chapters:
+  - file: lectures/lecture0
+  - file: lectures/Lecture-1
+  
