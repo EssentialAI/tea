@@ -11,7 +11,7 @@
 
 
 h1{
-  font-size: 36px;
+  font-size: 34px;
   /* color: black; */
   font-family: Helvetica, Arial, sans-serif;
   text-decoration: none;
@@ -22,7 +22,7 @@ h1{
   /* text-shadow: 2px 2px #83c5be; */
 }
 body {
-  font-size: 17px;
+  font-size: 16.5px;
   /* padding: -10px; */
   font-family: Helvetica, Arial, sans-serif;
   /* text-align: justify; */
@@ -30,7 +30,7 @@ body {
   /* margin-bottom:-10px; */
 }
 h2{
-  font-size: 24px;
+  font-size: 22px;
   font-family: Helvetica, Arial, sans-serif;
   text-decoration: none;
   padding-top: 5px;
@@ -42,6 +42,7 @@ h2{
 
 a {
   text-align: left;
+  text-decoration: none;
 }
 .high {
   color:#E83E8C;
@@ -57,13 +58,12 @@ a {
   text-decoration: underline;
 }
 h3{
-  font-size: 22px;
-  font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif;
+  font-size: 20px;
+  font-family: Helvetica, Arial, sans-serif;
   text-decoration: none;
+  padding-top: 5px;
   margin-top : 1px;
-  /* margin-bottom : 10px; */
-  font-weight: 600  ;
-  /* text-shadow: 2px 2px #83c5be; */
+  margin-bottom : 11px;
 }
 
 h4{
