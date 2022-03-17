@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 1: Introduction to Machine Learning &#8212; The Essential AI</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://essentialai.github.io/tea/lectures/Lecture-1.html" />
+    <link rel="shortcut icon" href="../_static/brain1.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Linear Algebra Review" href="lecture0.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/lightmode.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">The Essential AI</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture0.html">
+   Linear Algebra Review
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Lecture 1: Introduction to Machine Learning
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/lectures/Lecture-1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/EssentialAI/tea"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/EssentialAI/tea/issues/new?title=Issue%20on%20page%20%2Flectures/Lecture-1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/EssentialAI/tea/main?urlpath=lab/tree/lectures/Lecture-1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/EssentialAI/tea/blob/main/lectures/Lecture-1.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lecture 1: Introduction to Machine Learning</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="lecture-1-introduction-to-machine-learning">
+<h1>Lecture 1: Introduction to Machine Learning<a class="headerlink" href="#lecture-1-introduction-to-machine-learning" title="Permalink to this headline">¶</a></h1>
+<p>The term ‘Machine Learning’ was coined by <span class = 'high'>Arthur Samuel</span>. He wrote a program that would learn to play <a class="reference external" href="https://en.wikipedia.org/wiki/Checkers">checkers</a> by playing against itself without any kind of strategy being explicitly programmed into it. The program learned to improve itself by gaining experience by playing more and more games. This program by Arthuer Samuel is considered to be the start of Machine Learning.</p>
+<p>A more common definition by <span class = 'high'>Tom Mitchell</span> (a professor at CMU) defines Machine Learning as:</p>
+<div class="note admonition">
+<p class="admonition-title">Definition</p>
+<p>A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.</p>
+</div>
+<p><em>One might say ‘experience’ is a vague term. Experience in this context means prior data. The algorithm analyzes this prior data  (training data), looks for patterns in the data and the algorithm improves it’s performance at the task it was designed to operate on.</em></p>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>The key here is the data (the experience from the past) that distinguishes machine learning from other fields.</p>
+</div>
+<p>Machine Learning is also related to Artificial Intelligence (AI). AI is a broader field. Machine Learning is a subset of AI. AI is a field about building programs that perform at the level of human cognition. Machine Learning is one approach of how to implement these programs.</p>
+<p>Within Machine Learning, a field called Deep Learning has seen major advancements in recent times.</p>
+<p><strong>Examples of fields where Machine Learning has made a lot of progress:</strong></p>
+<ul class="simple">
+<li><p><em>Computer Vision and Image Recognition</em></p></li>
+</ul>
+<p>The ImageNET dataset and the Convolutional Neural Networks more or less revolutionized Computer Vision. This field has also improved autonomous driving where machine learning techniques are used to sense to ‘stop’ signs, where the pedestrians are and so on.</p>
+<ul class="simple">
+<li><p><em>Speech Recognition</em></p></li>
+</ul>
+<p>Machine Learning made things like Voice Assistants, Language Translation (Deep Learning), Unsupervised Translation.</p>
+<ul class="simple">
+<li><p><em>Reinforcement Learning and Deep Reinforcement Learning</em></p></li>
+</ul>
+<p>The majority of the progress has been in gameplaying. For example DeepMind built RL models that could play atari games, AlphaGO.</p>
+<p><em>This course starts with the basics of Machine Learning, Deep Learning, and touches upon the fundamentals of Reinforcement Learning.</em></p>
+<p><strong>Supervised Machine Learning</strong></p>
+<p>Supervised machine learning is a technique where the training data comes in pair. Each pair has an input and an output. The input is what you feed into the machine learning algorithm and the output is the desired result that the ML algorithm should yield. For each example, the ML model is told what the desired output must be. That’s why its called Supervised ML.</p>
+<p><strong>Unsupervised Machine Learning</strong></p>
+<p>In this type of ML, the model is given some data and there is no supervision. You just ask the model to look for patterns in the data. The output of your algorithm is the interesting structure or pattern that the model derives from the data. These algorithms are further divided into the ones that look for clusters vs the ones that look for subspaces.</p>
+<p><strong>Deep Learning</strong></p>
+<p>Deep Learning (also called as Representation Learning) is the technique where you want the model to learn the representation of the data, while in non-deep learning approaches, we feed the representation of the data to the model. In Deep Learning we let the algorithm itself learn the representation of the data.</p>
+<p><strong>Learning Theory</strong></p>
+<p>This section deals with the super important concepts of <code class="docutils literal notranslate"><span class="pre">bias-variance</span> <span class="pre">trade-off</span></code>, <code class="docutils literal notranslate"><span class="pre">generalization</span></code> and <code class="docutils literal notranslate"><span class="pre">uniform</span> <span class="pre">convergence</span></code>. How do we expect a model that is trained on a particular dataset to even perform at any level of accuracy when used on production. This is the part that makes this course very interesting because these principles are common accross all the learning algorithms and the alogorithms that have not been invented yet. These are the foundational aspects of why Machine Learning works.</p>
+<p><em>Finally, we touch upon some fundamentals of Reinforcement Learning</em>.</p>
+<p><strong>Examples</strong></p>
+<ul class="simple">
+<li><p>Image classification</p></li>
+</ul>
+<p>This is an example of Supervised ML algorithm where the model fed images (in terms of pixel values) and the model is expeccted to recognise the class of that input. One example dataset to image classification is the classic <span class = 'high'>MNIST</span> digit recoginition dataset.</p>
+<div class="figure align-default" id="directive-fig">
+<a class="reference internal image-reference" href="../_images/mnist.jpg"><img alt="../_images/mnist.jpg" src="../_images/mnist.jpg" style="width: 600px; height: 350px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">MNIST dataset. <a class="reference external" href="https://storage.googleapis.com/kaggle-datasets-images/1488071/2458428/b59f5c3418ee82f4271b402fb5cbad14/dataset-cover.jpg?t=2021-07-24-15-25-27%22/">credits</a></span><a class="headerlink" href="#directive-fig" title="Permalink to this image">¶</a></p>
+</div>
+<p>This is an example of multi-class classification problem where the input to the model is <span class="math notranslate nohighlight">\(28 \times 28\)</span> image (pixel values ranging from 0 to 256) and the expected output is ‘one of the numbers from 0 to 9’.</p>
+<blockquote>We shall be working on this dataset and implementing a neural network to build a hand-written digit recognition classifier.</blockquote>
+<ul class="simple">
+<li><p>The cocktail problem (Unsupervised Machine Learning)</p></li>
+</ul>
+<p>There are n speakers and microphones placed at specific locations. For simplicity let’s assume <span class="math notranslate nohighlight">\(n=2\)</span>. So, there are two speakers and two microphones located at specific locations. Both these microphones capture overlapping sounds from both speakers. Our goal is to seperate these voices and produce their seperate waveforms.</p>
+<p>We just provide two audio clips and there is no supervision whatsoever.</p>
+<ul class="simple">
+<li><p>Cart-Pole Balancing problem (Reinforcement Learning)</p></li>
+</ul>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="https://www.researchgate.net/profile/Xiaolong-Ma-11/publication/6421220/figure/fig2/AS:601218367909895&#64;1520353037352/Cart-pole-balancing-problem-The-force-applied-to-the-cart-is-atF-where-01-at-1-is.png"><img alt="https://www.researchgate.net/profile/Xiaolong-Ma-11/publication/6421220/figure/fig2/AS:601218367909895&#64;1520353037352/Cart-pole-balancing-problem-The-force-applied-to-the-cart-is-atF-where-01-at-1-is.png" src="https://www.researchgate.net/profile/Xiaolong-Ma-11/publication/6421220/figure/fig2/AS:601218367909895&#64;1520353037352/Cart-pole-balancing-problem-The-force-applied-to-the-cart-is-atF-where-01-at-1-is.png" style="width: 600px; height: 350px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Cart-pole balancing problem. <a class="reference external" href="https://www.researchgate.net/profile/Xiaolong-Ma-11/publication/6421220/figure/fig2/AS:601218367909895&#64;1520353037352/Cart-pole-balancing-problem-The-force-applied-to-the-cart-is-atF-where-01-at-1-is.png">credits</a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>We are aiming to control the cartpole that is placed on the stick by using direction and angle as parameters. For more information about Reinforcement Learning refer my lecture notes <a class="reference external" href="https:///www.theessentialai.com/rl">here</a></p>
+<p>Each trial is referred as episode and the agent tries to learn better and better over multiple episodes.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="lecture0.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Linear Algebra Review</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Naresh Kumar<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
