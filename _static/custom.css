@@ -1,15 +1,3 @@
-/* The Modal (background) */
-@font-face {
-  font-family: helv;
-  src: url(Helvetica.ttf);
-}
-
-@font-face {
-  font-family: helvbold;
-  src: url(Helvetica-Bold.ttf);
-}
-
-
 h1{
   font-size: 34px;
   /* color: black; */
