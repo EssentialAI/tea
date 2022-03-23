@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Mathematical Background &#8212; The Essential AI</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/custom.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://essentialai.github.io/tea/math-intro.html" />
+    <link rel="shortcut icon" href="_static/brain1.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/lightmode.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">The Essential AI</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   The Essential AI
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="blog/index.html">
+   The Essential AI blog
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="blog/mnist-4-neurons/index.html">
+     Can 4 output neurons classify 10 classes?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/math-intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/EssentialAI/tea/main?urlpath=tree/math-intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/EssentialAI/tea/blob/main/math-intro.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#infinite-series">
+   Infinite Series
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geometric-series">
+   Geometric Series
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binomial-series">
+   Binomial Series
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approximation">
+   Approximation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#taylor-approximation">
+     Taylor Approximation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exponential-series">
+     Exponential Series
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logarithmic-approximation">
+     Logarithmic approximation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="mathematical-background">
+<h1>2. Mathematical Background<a class="headerlink" href="#mathematical-background" title="Permalink to this headline">¶</a></h1>
+<p>This chapter discusses the essential mathematics for Reinforcement Learning and Data Science. Jumping directly into coding RL agents without strong mathematical background is never recommended.</p>
+<p>While there are multiple definitions for Data Science (and Reinforcement Learning) from several perspectives like Software Engineer, Machine Learning Scientist, the core concept of <span class = 'high'>Uncertainty</span> remains common.</p>
+<p>We choose to learn from data because we believe that the latent information is embedded in the data — unprocessed, contains noise, and could have missing entries. If there is no randomness, all data scientists can close their business because there is simply no problem to solve. Therefore, data science is the subject of making decisions in uncertainty.</p>
+<div class="tip admonition">
+<p class="admonition-title">Note</p>
+<p>See <span class="xref myst">Multi-Arm Bandit Chapter</span> for details about “Decision making under Uncertainty”</p>
+</div>
+<p>The mathematics of analyzing uncertainty is <span class = 'high'>Probability.</span> It is the tool to help us model, analyze, and predict random events. Probability is a vast topic and certainly deserves it’s own chapter in this book. (See table of contents).</p>
+<p>The topics in this chapter are meant to review familiar concepts of undergraduate algebra and calculus. These topics are meant to warm up your mathematics background so that you can follow the subsequent chapters. This chapter starts with details about <span class="xref myst">Infinite Series</span>, something that will be used frequently to evaluate the expectation and variance of random variables. Next we move on to <span class="xref myst">Taylor Approximation</span>, which will be helpful when we discuss continuous random variables. The next section deals with review of integration alongside providing several tricks to make integration easy. The last two sections of the chapter deal with <span class="xref myst">Linear Algebra</span> and details about <span class="xref myst">Permutations and Combinations</span>, basic techniques to count events.</p>
+<div class="section" id="infinite-series">
+<h2>Infinite Series<a class="headerlink" href="#infinite-series" title="Permalink to this headline">¶</a></h2>
+<p><em>Gentle Introduction to Probability</em></p>
+<p>Imagine that you have a <span class = 'high'>fair coin</span>. If you get a tail, you flip the coin again. You do this repeatedly until you finally get a head. <span class = 'high'>What is the probability that you need to flip the coin three times to get one head?</span></p>
+<p>This is a warm-up exercise. Since the coin is fair, the probability of obtaining a head is <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>. The probability of getting a tail followed by a head is <span class="math notranslate nohighlight">\(\frac{1}{2} \times \frac{1}{2} = \frac{1}{4}\)</span>. If you follow this logic, you can write down the probabilities for all other cases. The below figures shows these probabilities for better understanding.</p>
+<p><img alt="test" src="../images/coins.png" /></p>
+<p>We can also summarize these probabilities using <span class = 'high'>Histogram</span> as shown below. We see that the sequence above can be infinitely long.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Number of coin flips&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability of head on last flip&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/math-intro_2_0.png" src="_images/math-intro_2_0.png" />
+</div>
+</div>
+<p>Another question that can be asked based on the above experiment is, <span class = 'high'>On average, if you want to be <span class="math notranslate nohighlight">\(90\%\)</span> sure that you will get a head, what is the minimum number of attempts you need to try?</span></p>
+<p>This problem can be answered by analyzing the sequence of probabilities. If we make two attempts, then the probability of getting a head is the sum of the probabilities for one attempt and that of two attempts:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\mathbb{P}[\text{success after 1 attempt}] &amp;= \frac{1}{2} = 0.5 \\
+\mathbb{P}[\text{success after 2 attempts}] &amp;= \frac{1}{2} + \frac{1}{4}= 0.75 \\
+\mathbb{P}[\text{success after 3 attempts}] &amp;= \frac{1}{2} + \frac{1}{4} + \frac{1}{8} = 0.875 \\
+\mathbb{P}[\text{success after 4 attempts}] &amp;= \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16}= 0.9375
+\end{align}
+\end{split}\]</div>
+<p>This means if we try for 4 attempts we will have <span class="math notranslate nohighlight">\(93.75 \%\)</span> probability to obtain a head.</p>
+<p>This section is a gentle introduction to calculation of probability without formulae. Probability will be reviewed in detail in the next chapter.</p>
+</div>
+<div class="section" id="geometric-series">
+<h2>Geometric Series<a class="headerlink" href="#geometric-series" title="Permalink to this headline">¶</a></h2>
+<p>A geometric series is the sum of a finite or an infinite sequence of numbers with a constant ratio between successive terms. As we have seen in the previous example, a geometric series appears naturally in the context of discrete events. In <span class = 'high'>chapter</span>, we will use geometric series when calculating <span class = 'high'>expectation</span> and <span class = 'high'>moments</span> of a random variable.</p>
+<div class="note admonition">
+<p class="admonition-title">Geometric Series</p>
+<p><span class = 'high'>Finite Geometric Sequence</span> of power <span class="math notranslate nohighlight">\(n \enspace \rightarrow \enspace \{1,r,r^2,...,r^n\}\)</span></p>
+<p><span class = 'high'>Infinite Geometric Sequence</span> of numbers <span class="math notranslate nohighlight">\(\enspace \rightarrow \enspace \{1,r,r^2,...\}\)</span></p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Sum of geometric series</p>
+<p>Sum of a finite geometric series of power <span class="math notranslate nohighlight">\(n\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{k=0}^n r^k = 1+r+r^2+...+r^n = \frac{1-r^{n+1}}{1-r} \label{naresh}\]</div>
+<p>Sum of an infinite geometric series is (if <span class="math notranslate nohighlight">\(0 &lt; r &lt; 1\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[    \sum_{k=0}^\infty r^k = 1+r+r^2+... = \frac{1}{1-r}\]</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\sum_{k=1}^{\infty}k r^{k-1} = 1+2r+3r^2+... = \frac{1}{(1-r)^2}\]</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{n=1}^\infty \frac{1}{2^k} = \frac{1}{4}(1+\frac{1}{2}+\frac{1}{4}...) = \frac{1}{4}\cdot \frac{1}{1-\frac{1}{2}} = \frac{1}{2}\]</div>
+<div class="math notranslate nohighlight">
+\[\sum_{n=1}^\infty \frac{1}{n^2} = 1+\frac{1}{2^2}+\frac{1}{3^2}+.. = \frac{\pi^2}{6}
+\]</div>
+</div>
+</div>
+<div class="section" id="binomial-series">
+<h2>Binomial Series<a class="headerlink" href="#binomial-series" title="Permalink to this headline">¶</a></h2>
+<p>A <span class="xref myst">geometric series</span> is useful when handling situations such as <span class="math notranslate nohighlight">\(N-1\)</span> failures followed by a success. However, we can easily twist the problem by asking: <span class = 'high'>What is the probability of getting one head out of <span class="math notranslate nohighlight">\(3\)</span> independent coin tosses?</span> In this case, the probability can be determined by enumerating all possible cases:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\mathbb{P}[\text{1 head in 3 coins}] &amp;= \mathbb{P}[H,T,T]+\mathbb{P}[T,H,T]+\mathbb{P}[T,T,H] \\
+&amp;= \small{\left(\frac{1}{2}\times \frac{1}{2} \times \frac{1}{2}\right)+\left(\frac{1}{2}\times \frac{1}{2} \times \frac{1}{2}\right)+\left(\frac{1}{2}\times \frac{1}{2} \times \frac{1}{2}\right)} \\
+&amp;= \small{\frac{3}{8}}
+\end{align}
+\end{split}\]</div>
+<p><img alt="test" src="../images/coins1.png" /></p>
+<p>In general, the number of combinations can be systematically studied using <span class = 'high'>Combinatorics</span>, which we will discuss later in the chapter. However, the number of combinations motivates us to discuss another background technique known as the <span class = 'high'>Binomial Series</span>. The binomial series is instrumental in algebra when handling polynomials such as <span class="math notranslate nohighlight">\((a+b)^2\)</span> or <span class="math notranslate nohighlight">\((1+x)^3\)</span>. It provides valuable formula when computing these powers.</p>
+<div class="note admonition">
+<p class="admonition-title">Binomial Theorem</p>
+<p>For any real numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, the binomial series of power <span class="math notranslate nohighlight">\(n\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[\definecolor{orange}{RGB}{232, 62, 140}
+\color{orange}{(a+b)^n = \sum_{k=0}^{n}\binom{n}{k}a^{n-k}b^k}\]</div>
+<div class="math notranslate nohighlight">
+\[
+\small{\text{where} \binom{n}{k} = \frac{n!}{k!(n-k)!}}\]</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">comb</span><span class="p">,</span> <span class="n">factorial</span>
+<span class="n">n</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">k</span><span class="o">=</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">comb</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45.0
+2.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-pascal-s-identity admonition">
+<p class="admonition-title">Pascal’s Identity</p>
+<p>Let <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> be positive integers such that <span class="math notranslate nohighlight">\(K \leq n\)</span>, then,</p>
+<div class="math notranslate nohighlight">
+\[\binom{n}{k}+\binom{n}{k-1}=\binom{n+1}{k}\]</div>
+</div>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Exercise 1: Using Binomial theorem find <span class="math notranslate nohighlight">\((1+x)^3\)</span><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+(1+x)^3 &amp;= \sum_{k=0}^{n}\binom{3}{k}1^{3-k}x^k \\
+&amp;= 1+3x+3x^2+x^3
+\end{align}\end{split}\]</div>
+</div>
+</details></div>
+<div class="section" id="approximation">
+<h2>Approximation<a class="headerlink" href="#approximation" title="Permalink to this headline">¶</a></h2>
+<p>Consider a function <span class="math notranslate nohighlight">\(f(x) = log(1+x)\)</span>, for <span class="math notranslate nohighlight">\(x &gt;0\)</span>. This is a non-linear function. Non-linear functions are hard to deal with because, for example, if you want to integrate the function <span class="math notranslate nohighlight">\(\int_{a}^{b}xlog(1+x)dx\)</span>, then the logarithm will force us to do integration by parts. However, in many practical problems, we may not need the full range of <span class="math notranslate nohighlight">\(x&gt;0\)</span>. Suppose that you are only interested in the values <span class="math notranslate nohighlight">\(x &lt;&lt; 1\)</span>. Then the logarithm can be approximated, and thus the integral can also be approximated</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;The function f(x)=log(1+x) and the approximation $\hatf(x)=x$&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;f(x)=log(1+x)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;f(x)=x&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;f(x)=log(1+x)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;f(x)=x&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/math-intro_6_0.png" src="_images/math-intro_6_0.png" />
+</div>
+</div>
+<p>To see how this is possible, let’s see the above image. The non-linear function <span class="math notranslate nohighlight">\(f(x) = log(1+x)\)</span> and an approximation <span class="math notranslate nohighlight">\(\hat f(x)=x\)</span> are chosen. The approximation is carefully chosen such that for <span class="math notranslate nohighlight">\(x&lt;&lt;1\)</span>, the approximation <span class="math notranslate nohighlight">\(\hat f(x)\)</span> is close to the true function <span class="math notranslate nohighlight">\(f(x)\)</span>. Therefore, we can argue that for <span class="math notranslate nohighlight">\(x&lt;&lt;1\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[log(1+x) \approx x\]</div>
+<p>This simplifies the calculation for the integral discussed above. For example, if you want to integrate <span class="math notranslate nohighlight">\(xlog(1+x)\)</span> for <span class="math notranslate nohighlight">\(0&lt;x&lt;0.1\)</span>, then the integral can be approximated by,</p>
+<div class="math notranslate nohighlight">
+\[\int_0^{0.1}xlog(1+x)dx \enspace \approx \int_0^{0.1}x^2dx = \frac{x^3}{3} = 3.33 \times 10^{-4}\]</div>
+<p>(The actual integral is <span class="math notranslate nohighlight">\(3.21 \times 10^{-4}\)</span>). In this section we will learn about the basic approximation techniques.</p>
+<div class="section" id="taylor-approximation">
+<h3>Taylor Approximation<a class="headerlink" href="#taylor-approximation" title="Permalink to this headline">¶</a></h3>
+<p>Given a function <span class="math notranslate nohighlight">\(f: \mathbb{R} \rightarrow \mathbb{R}\)</span>, it is often useful to analyze its behaviour by approximating <span class="math notranslate nohighlight">\(f\)</span> using its local information. <span class = 'high'>Taylor approximation</span> is one of the tools for such a task. We will use the Taylor approximation on many occasions.</p>
+<div class="admonition-taylor-approximation admonition">
+<p class="admonition-title">Taylor Approximation</p>
+<p>Let <span class="math notranslate nohighlight">\(f: \mathbb{R} \rightarrow \mathbb{R}\)</span> be a continuous function with infinite derivatives. Let <span class="math notranslate nohighlight">\(a \in \mathbb{R}\)</span> be a fixed constant. The Taylor approximation of <span class="math notranslate nohighlight">\(f\)</span> at <span class="math notranslate nohighlight">\(x=a\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+f(x) &amp;= f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+... \\
+&amp;= \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n
+\end{align}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\small{\text{where }f^{(n)} \text{ denotes the } n^{th} \text{ -order derivative of } f}\)</span></p>
+</div>
+<p>Taylor approximation is a geometry-based approximation. It approximated the function according to the offset, slope, curvature, and so on. According to the definition the Taylor series has an infinite number of terms. If we use a finite number of terms, we obtain the <span class="math notranslate nohighlight">\(n^{th}\)</span>-order Taylor approximation.</p>
+<div class="math notranslate nohighlight">
+\[
+\text{First-Order: } f(x) = \underbrace{f(a)}_{\text{offset}}+\underbrace{f'(a)(x-a)}_{\text{slope}}+ \mathcal{O}((x-a)^2)\]</div>
+<div class="math notranslate nohighlight">
+\[\text{Second-Order: } f(x) = \underbrace{f(a)}_{\text{offset}}+\underbrace{f'(a)(x-a)}_{\text{slope}}+ \underbrace{\frac{f''(a)}{2!}(x-a)^2}_{\text{curvature}}+\mathcal{O}((x-a)^3)
+\]</div>
+<p>Here, the big-O notation <span class="math notranslate nohighlight">\(\mathcal{O}(\epsilon^k)\)</span> means any term that has an order at least power <span class="math notranslate nohighlight">\(k\)</span>. For small <span class="math notranslate nohighlight">\(\epsilon\)</span>, i.e., <span class="math notranslate nohighlight">\(\epsilon ≪ 1\)</span>, a high-order term <span class="math notranslate nohighlight">\(\mathcal{O}(\epsilon^k) \approx 0\)</span> for large <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Let <span class="math notranslate nohighlight">\(f(x)=sinx\)</span>. Then the Taylor approximation at <span class="math notranslate nohighlight">\(x=0\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+f(x) &amp;\approx f(0) + f'(0)(x-0)+\frac{f''(0)}{2!}(x-0)^2+\frac{f'''(0)}{3!}(x-0)^3 \\
+&amp;= sin(0)+cos(0)(x-0)+\frac{sin(0)}{2!}(x-0)^2+\frac{cos(0)}{3!}(x-0)^3 \\
+&amp;= 0+x-0-\frac{x^3}{6} = x-\frac{x^3}{6}
+\end{align}\end{split}\]</div>
+<p>We can expand further to higher orders, which yields</p>
+<div class="math notranslate nohighlight">
+\[f(x) = x - \frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+...\]</div>
+<p>We show the first few approximations in the figure below. One should be reminded that Taylor approximation approximates a function <span class="math notranslate nohighlight">\(f(x)\)</span> at a particular point <span class="math notranslate nohighlight">\(x=a\)</span>. Therefore, the approximation of <span class="math notranslate nohighlight">\(f\)</span> near <span class="math notranslate nohighlight">\(x=0\)</span> and the approximation of <span class="math notranslate nohighlight">\(f\)</span> near <span class="math notranslate nohighlight">\(x = \pi/2\)</span> are different. For example, the Taylor approximation at <span class="math notranslate nohighlight">\(x = \pi/2\)</span> for <span class="math notranslate nohighlight">\(f(x)=sinx\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+f(x) &amp;= sin\frac{\pi}{2}+cos\frac{\pi}{2}(x -\frac{\pi}{2}) -\frac{sin\frac{\pi}{2}}{2!}(x -\frac{\pi}{2})^2 - \frac{cos\frac{\pi}{2}}{3!}(x-\frac{\pi}{2})^3 \\
+&amp;= 1+0 -\frac{1}{4}(x-\frac{\pi}{2})^2-0=1-\frac{1}{4}(x-\frac{\pi}{2})^2
+\end{align}\end{split}\]</div>
+<img alt="taylor approximation of sin(x)" class="align-center" src="../images/taylor_approx1.png" />
+</div>
+</div>
+<div class="section" id="exponential-series">
+<h3>Exponential Series<a class="headerlink" href="#exponential-series" title="Permalink to this headline">¶</a></h3>
+<p>An immediate application of the Taylor approximation is to derive the <span class = 'high'>exponential series.</span></p>
+<div class="admonition-theorem admonition">
+<p class="admonition-title">Theorem</p>
+<p>Let <span class="math notranslate nohighlight">\(x\)</span> be any real number. Then,</p>
+<div class="math notranslate nohighlight">
+\[e^x = 1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+... = \sum_{k=0}^\infty\frac{x^k}{k!}\]</div>
+</div>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Exercise 2: Evaluate <span class="math notranslate nohighlight">\(\sum_{k=0}^\infty\frac{\lambda^ke^{-\lambda}}{k!}\)</span><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="math notranslate nohighlight">
+\[\sum_{k=0}^\infty\frac{\lambda^ke^{-\lambda}}{k!} = e^{-\lambda}\sum_{k=0}^\infty\frac{\lambda^k}{k!} = e^{-\lambda}e^\lambda = 1\]</div>
+</div>
+</details></div>
+<div class="section" id="logarithmic-approximation">
+<h3>Logarithmic approximation<a class="headerlink" href="#logarithmic-approximation" title="Permalink to this headline">¶</a></h3>
+<p>Taylor approximation also allows us to find approximations to logarithmic functions. We start by finding the approximation of <span class="math notranslate nohighlight">\(log(1+x)\)</span>:</p>
+<p>Let <span class="math notranslate nohighlight">\(f(x) = log(1+x)\)</span>. Then, the derivatives of <span class="math notranslate nohighlight">\(f\)</span> are</p>
+<div class="math notranslate nohighlight">
+\[f'(x) = \frac{1}{(1+x)} \text{, and } f''(x) = -\frac{1}{(1+x)^2}\]</div>
+<p>Taylor approximation at <span class="math notranslate nohighlight">\(x = 0\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+f(x) &amp;= f(0)+f'(0)(x-0)+\frac{f''(0)}{2}(x-0)^2+\mathcal{O}(x^3) \\
+&amp;=log1+(\frac{1}{(1+0)})x - (\frac{1}{(1+0)^2})x^2+\mathcal{O}(x^3) \\
+&amp;= x=x^2+\mathcal{O}(x^3)
+\end{align}
+\end{split}\]</div>
+<p>The difference between this result and the result shown in the beginning of this section is the order of polynomials we used to approximate the logarithm:</p>
+<ul class="simple">
+<li><p>First-Order: <span class="math notranslate nohighlight">\(log(1+x) = x\)</span></p></li>
+<li><p>Second-Order: <span class="math notranslate nohighlight">\(log(1+x) = x-x^2\)</span></p></li>
+</ul>
+<p>What order of approximation is good? It depends on <span class = 'high'>where</span> you want the approximation to be good, and how <span class = 'high'>far</span> you want the approximation to go. The difference between the approximations is shown below.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">x</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">fig</span><span class="p">,(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Comparisions of approximations to f(x)=log(1+x)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;f(x)=log(1+x)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;f(x)=x&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;First-order approximation&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;f(x)=log(1+x)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;f(x)=$x-x^2$&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Second-order approximation&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/math-intro_10_0.png" src="_images/math-intro_10_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Naresh Kumar<br/>
+        
+            &copy; Copyright 2022.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
