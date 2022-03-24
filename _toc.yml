@@ -1,8 +1,0 @@
-format: jb-book
-root: index
-chapters:
-  - file: intro
-  - file: blog/index
-    sections:
-    - file: blog/mnist-4-neurons/index
-  
