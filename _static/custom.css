@@ -1,7 +1,7 @@
 h1{
   font-size: 34px;
   /* color: black; */
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica,"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
   text-decoration: none;
   /* font-weight: 600; */
   /* margin-top : 1px; */
@@ -10,16 +10,16 @@ h1{
   /* text-shadow: 2px 2px #83c5be; */
 }
 body {
-  font-size: 16px;
+  font-size: 16.5px;
   /* padding: -10px; */
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica,"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
   /* text-align: justify; */
   line-height: 145%;
   /* margin-bottom:-10px; */
 }
 h2{
   font-size: 22px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica,"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
   text-decoration: none;
   padding-top: 5px;
   margin-top : 1px;
@@ -43,7 +43,7 @@ h2{
 }
 h3{
   font-size: 20px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica,"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
   text-decoration: none;
   padding-top: 5px;
   margin-top : 1px;
@@ -57,7 +57,7 @@ h3{
 
 h4{
   font-size: 16px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica,"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
   text-decoration: none;
   padding-top: 5px;
   margin-top : 1px;
