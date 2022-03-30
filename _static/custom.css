@@ -1,11 +1,12 @@
 h1{
-  font-size: 34px;
+  font-size: 33px;
   /* color: black; */
   font-family: Inter;
   text-decoration: none;
   /* font-weight: 600; */
   /* margin-top : 1px; */
   margin-bottom : 11px;
+  /* text-align: left;   */
   /* font-weight: 300; */
   /* text-shadow: 2px 2px #83c5be; */
 }
@@ -15,20 +16,22 @@ h1{
   src: url(Inter-Regular.woff);
 }
 body {
-  font-size: 16.5px;
+  font-size: 16px;
   /* padding: -10px; */
   font-family: Inter;
   /* text-align: justify; */
-  line-height: 145%;
+  line-height: 150%;
   /* margin-bottom:-10px; */
 }
+
 h2{
-  font-size: 22px;
+  font-size: 21.5px;
   font-family: Inter;
   text-decoration: none;
   padding-top: 5px;
   margin-top : 1px;
   margin-bottom : 11px;
+  text-align: left;
   /* font-weight: bold; */
   /* text-shadow: 2px 2px #83c5be; */
 }
@@ -53,6 +56,8 @@ h3{
   padding-top: 5px;
   margin-top : 1px;
   margin-bottom : 11px;
+  text-align: left;
+  /* font-weight: bold; */
 }
 
 /* hr {
@@ -66,6 +71,7 @@ h4{
   text-decoration: none;
   padding-top: 5px;
   margin-top : 1px;
+  text-align: left;
   /* margin-bottom : 11px; */
   /* text-shadow: 2px 2px #83c5be; */
 }
